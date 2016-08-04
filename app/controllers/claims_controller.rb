@@ -1,5 +1,4 @@
 class ClaimsController < ApplicationController
-
   def create
     claim = Claim.new(claim_params)
     render json: claim, serializer: ClaimSerializer
