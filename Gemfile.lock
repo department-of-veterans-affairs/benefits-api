@@ -60,7 +60,6 @@ GEM
     diff-lcs (1.2.5)
     docile (1.1.5)
     erubis (2.7.0)
-    execjs (2.7.0)
     ffi (1.9.14)
     formatador (0.2.5)
     globalid (0.3.7)
@@ -80,16 +79,11 @@ GEM
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
     i18n (0.7.0)
-    jshint (1.4.0)
-      execjs (>= 1.4.0)
-      multi_json (~> 1.0)
-      therubyracer (~> 0.12.1)
     json (1.8.3)
     json-schema (2.6.2)
       addressable (~> 2.3.8)
     jsonapi (0.1.1.beta2)
       json (~> 1.8)
-    libv8 (3.16.14.15)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -105,7 +99,6 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
-    multi_json (1.12.1)
     nenv (0.3.0)
     nio4r (1.2.1)
     nokogiri (1.6.8)
@@ -156,7 +149,6 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.2.2)
       json (~> 1.4)
-    ref (2.0.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -185,10 +177,6 @@ GEM
       ruby-progressbar (~> 1.7)
     ruby-progressbar (1.8.1)
     ruby_dep (1.4.0)
-    sass (3.4.22)
-    scss_lint (0.49.0)
-      rake (>= 0.9, < 12)
-      sass (~> 3.4.20)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -208,9 +196,6 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.3.11)
-    therubyracer (0.12.2)
-      libv8 (~> 3.16.14.0)
-      ref
     thor (0.19.1)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
@@ -234,7 +219,6 @@ DEPENDENCIES
   bundler-audit
   byebug
   guard-rspec
-  jshint
   json-schema
   puma (~> 2.16.0)
   rails (= 5.0.0)
@@ -242,7 +226,6 @@ DEPENDENCIES
   rspec
   rspec-rails
   rubocop (~> 0.36.0)
-  scss_lint
   sdoc (~> 0.4.0)
   simplecov
   spring
