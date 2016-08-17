@@ -22,13 +22,13 @@ module EVSS
       @headers = user_info
     end
 
-    def claims()
+    def claims
       self.class.get('/vbaClaimStatusService/getOpenClaims',
         headers: @headers
       )
     end
 
-    def create_intent_to_file!()
+    def create_intent_to_file
       headers = {
          'Content-Type': 'application/json',
       }
