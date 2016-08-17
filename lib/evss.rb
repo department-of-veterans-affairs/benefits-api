@@ -18,6 +18,8 @@ module EVSS
     # TODO: Get base URI from env
     base_uri 'http://csraciapp6.evss.srarad.com:7003/wss-claims-services-web-3.1/rest'
 
+    default_timeout 5  # seconds
+
     def initialize(user_info={})
       @headers = user_info
     end
