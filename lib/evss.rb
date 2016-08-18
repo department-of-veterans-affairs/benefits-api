@@ -9,13 +9,6 @@ module EVSS
       @default_timeout = 5  # seconds
     end
 
-    def conn
-      Faraday.new(@base_url, headers: @headers) do |faraday|
-        faraday.options.timeout = @default_timeout
-        faraday.adapter  :httpclient
-      end
-    end
-
     def claims
       conn.get 'vbaClaimStatusService/getOpenClaims'
     end
@@ -26,5 +19,15 @@ module EVSS
         req.body = '{}'
       end
     end
+
+    private
+
+    def conn
+      @conn ||= Faraday.new(@base_url, headers: @headers) do |faraday|
+        faraday.options.timeout = @default_timeout
+        faraday.adapter  :httpclient
+      end
+    end
+
   end
 end
