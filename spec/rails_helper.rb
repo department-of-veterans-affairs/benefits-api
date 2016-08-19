@@ -25,8 +25,20 @@ require "rspec/rails"
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 # ActiveRecord::Migration.maintain_test_schema!
+require "webmock/rspec"
+require "vcr"
 require "json-schema"
 require "support/api_schema_matcher"
+
+
+#  Set up VCR
+WebMock.disable_net_connect!(allow_localhost: true)
+
+VCR.configure do |c|
+  c.cassette_library_dir = "spec/support/vcr_cassettes"
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+end
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

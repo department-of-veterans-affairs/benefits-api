@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require "rails_helper"
 require 'evss'
 
 describe EVSS::ClaimsService do
@@ -27,11 +27,19 @@ describe EVSS::ClaimsService do
   context 'with headers' do
 
     it 'should get claims' do
-      expect(subject.claims).to have_attributes(status: 200)
+      VCR.use_cassette("evss/claims/claims") do
+        response = subject.claims
+        expect(response).to be_success
+        expect(response.body).to be_a(String)
+      end
     end
 
     it 'should post create_intent_to_file' do
-      expect(subject.create_intent_to_file).to have_attributes(status: 200)
+      VCR.use_cassette("evss/claims/create_intent_to_file") do
+        response = subject.create_intent_to_file
+        expect(response).to be_success
+        expect(response.body).to be_a(String)
+      end
     end
 
   end
