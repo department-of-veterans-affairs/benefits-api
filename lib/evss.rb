@@ -1,6 +1,10 @@
+require 'faraday'
+
 module EVSS
 
   class ClaimsService
+
+    attr :base_url, :default_timeout
 
     def initialize(vaafi_headers={})
       # TODO: Get base URI from env
