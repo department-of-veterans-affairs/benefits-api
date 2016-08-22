@@ -20,6 +20,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem "puma", "~> 2.16.0"
 
 gem 'faraday'
+gem 'faraday_middleware'
 gem 'httpclient'
 
 group :development, :test do

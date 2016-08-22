@@ -1,7 +1,6 @@
 require 'faraday'
 
 module EVSS
-
   class ClaimsService
 
     attr :base_url, :default_timeout
@@ -29,6 +28,7 @@ module EVSS
     def conn
       @conn ||= Faraday.new(@base_url, headers: @headers) do |faraday|
         faraday.options.timeout = @default_timeout
+        faraday.response :json, content_type: /\bjson$/
         faraday.adapter  :httpclient
       end
     end

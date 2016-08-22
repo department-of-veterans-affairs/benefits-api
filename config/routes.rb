@@ -54,5 +54,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  resources :claims, only: [:create]
+  resources :claims, only: [:index]
 end

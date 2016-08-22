@@ -18,7 +18,7 @@ describe EVSS::ClaimsService do
       'va_eauth_dodedipnid'=> '1105051936',
       'va_eauth_middleName'=> 'A',
       'va_eauth_authenticationmethod'=> 'DSLogon',
-      'va_eauth_assurancelevel'=> '2',
+      'va_eauth_assurancelevel'=> '2'
     }
   }
 
