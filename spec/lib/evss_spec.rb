@@ -29,7 +29,6 @@ describe EVSS::ClaimsService do
       VCR.use_cassette("evss/claims/claims") do
         response = subject.claims
         expect(response).to be_success
-        expect(response.body).to be_a(String)
       end
     end
 
@@ -37,7 +36,6 @@ describe EVSS::ClaimsService do
       VCR.use_cassette("evss/claims/create_intent_to_file") do
         response = subject.create_intent_to_file
         expect(response).to be_success
-        expect(response.body).to be_a(String)
       end
     end
   end
