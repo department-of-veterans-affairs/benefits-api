@@ -30,7 +30,6 @@ require "vcr"
 require "json-schema"
 require "support/api_schema_matcher"
 
-
 #  Set up VCR
 WebMock.disable_net_connect!(allow_localhost: true)
 
