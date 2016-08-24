@@ -1,9 +1,11 @@
-# frozen_string_literal: true
-require "rails_helper"
-require "evss"
+class User
+  def claims
+    Claim.fetch_all(vaafi_headers)
+  end
 
-describe EVSS::ClaimsService do
-  let(:vaafi_headers) do
+  private
+
+  def vaafi_headers
     {
       "va_eauth_pnidtype" => "SSN",
       "va_eauth_csid" => "DSLogon",
@@ -20,23 +22,5 @@ describe EVSS::ClaimsService do
       "va_eauth_authenticationmethod" => "DSLogon",
       "va_eauth_assurancelevel" => "2"
     }
-  end
-
-  subject { described_class.new(vaafi_headers) }
-
-  context "with headers" do
-    it "should get claims" do
-      VCR.use_cassette("evss/claims/claims") do
-        response = subject.claims
-        expect(response).to be_success
-      end
-    end
-
-    it "should post create_intent_to_file" do
-      VCR.use_cassette("evss/claims/create_intent_to_file") do
-        response = subject.create_intent_to_file
-        expect(response).to be_success
-      end
-    end
   end
 end

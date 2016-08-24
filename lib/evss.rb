@@ -27,7 +27,8 @@ module EVSS
     def conn
       @conn ||= Faraday.new(@base_url, headers: @headers) do |faraday|
         faraday.options.timeout = @default_timeout
-        faraday.adapter :httpclient
+        faraday.response :json, content_type: /\bjson$/
+        faraday.adapter  :httpclient
       end
     end
   end

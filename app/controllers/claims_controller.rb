@@ -1,12 +1,13 @@
 class ClaimsController < ApplicationController
-  def create
-    claim = Claim.new(claim_params)
-    render json: claim, serializer: ClaimSerializer
+  def index
+    render json: current_user.claims,
+           serializer: ActiveModel::Serializer::CollectionSerializer,
+           each_serializer: ClaimSerializer
   end
 
   private
 
-  def claim_params
-    params.require(:claim).permit(:id)
+  def current_user
+    @current_user ||= User.new
   end
 end
