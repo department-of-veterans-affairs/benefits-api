@@ -1,3 +1,5 @@
+require "evss"
+
 class Claim < ActiveModelSerializers::Model
   attr_accessor :id
 
@@ -10,7 +12,7 @@ class Claim < ActiveModelSerializers::Model
       next unless raw_claims[key]
       claims << raw_claims[key].map do |raw_claim|
         attrs = {
-          id: raw_claim['id']
+          id: raw_claim["id"]
         }
         Claim.new(attrs)
       end
